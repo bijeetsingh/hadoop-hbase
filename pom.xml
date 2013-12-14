@@ -3,5 +3,8 @@
   <groupId>com.bijeetsingh</groupId>
   <artifactId>hadoop-hbase</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+    <modules>
+        <module>hbase</module>
+    </modules>
+    <packaging>pom</packaging>
 </project>
