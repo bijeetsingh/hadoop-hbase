@@ -103,8 +103,8 @@ public class Helper {
                 put.add(colFam,                                 // column family
                         Bytes.toBytes("col_" + colSuffix),      // column qualifier
                         Bytes.toBytes(colSuffix));              // value
-                // TODO : Use ListPut
             }
+            // TODO : Use ListPut
             table.put(put);
         }
         table.close();
@@ -116,7 +116,7 @@ public class Helper {
                 genRandomPaddedNum(1, 999, 3) +                                 // a random 3 digit prefix
                 "_" +                                                           // rowKey delimiter
                 // TODO : Get rid of this hard coding.
-                genRandDate("2012-01-01 00:00:00", "2013-12-31 23:59:59"));     // We're generating dummy data, so
+                genRandomDate("2012-01-01 00:00:00", "2013-12-31 23:59:59"));     // We're generating dummy data, so
                                                                                 // hard coding is fine for now.
     }
 
@@ -136,7 +136,7 @@ public class Helper {
     }
 
     // Generate random date b/w given dates
-    private String genRandDate(String startDate, String endDate) {
+    private String genRandomDate(String startDate, String endDate) {
         long offset = Timestamp.valueOf(startDate).getTime();
         long end = Timestamp.valueOf(endDate).getTime();
         long diff = end - offset + 1;
@@ -152,9 +152,9 @@ public class Helper {
                 Bytes.toBytes("cf1"),                  // column family
                 Bytes.toBytes("cf2"));                 // column family
 
-        helper.populateTable(Bytes.toBytes("testTable"), // table name
-                Bytes.toBytes("cf1"),                    // column family
-                500,                                       // number of rows
-                100);                                     // number of columns
+        helper.populateTable(Bytes.toBytes("testTable"),    // table name
+                Bytes.toBytes("cf1"),                       // column family
+                10,                                        // number of rows
+                10);                                       // number of columns
     }
 }
