@@ -37,6 +37,10 @@ public class MultipleColumnPrefixRowFilter extends FilterBase {
         }
     }
 
+    /**
+     * Get the byte array of prefixes.
+     * @return
+     */
     public byte [][] getPrefix() {
         int count = 0;
         byte [][] temp = new byte [sortedPrefixes.size()][];
@@ -72,7 +76,7 @@ public class MultipleColumnPrefixRowFilter extends FilterBase {
 
             // As we traverse through the sorted KeyValues of a row, at no
             // point should the current qualifier be greater than the smallest
-            // of prefixes provided.
+            // of prefixes provided not polled out of <code>sortedPrefixesForRow</code>.
             if (Bytes.startsWith(qualifier, sortedPrefixesForRow.first())) {
                 sortedPrefixesForRow.pollFirst();
                 return ReturnCode.INCLUDE;
